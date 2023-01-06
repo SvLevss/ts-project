@@ -11,7 +11,7 @@ function shiftDecipher(str: string, shift: number = 1): string {
 }
 
 function yesResult(str: string, shift: number = 1): string {
-    shift = shift % (lastShift - firstShift + 1);
+    shift = shift % (lastShift - firstShift+1);
 
     let result: string = "";
 
