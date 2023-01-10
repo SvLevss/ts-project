@@ -7,7 +7,7 @@ class Cipher {
         this.minCode = minCode;
         this.maxCode = maxCode;
         this.shift = shift;
-        this.nCodes = this.maxCode - this.minCode + 1;
+        this.code = this.maxCode - this.minCode + 1;
     }
     cipher(str) {
         return this.cipherDecipher(str, this.minCode, Cipher_1.mapperCipher);
@@ -20,7 +20,7 @@ class Cipher {
         const arRes = arStr.map(symb => {
             let res = symb;
             if (symb.charCodeAt(0) <= this.maxCode && symb.charCodeAt(0) >= this.minCode) {
-                res = mapperFun(symb, code, this.shift, this.nCodes);
+                res = mapperFun(symb, code, this.shift, this.code);
             }
             return res;
         });
