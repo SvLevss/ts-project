@@ -1,34 +1,23 @@
 "use strict";
-const firstShift = 'a'.charCodeAt(0);
-const lastShift = 'z'.charCodeAt(0);
-function shiftCipher(str, shift = 1) {
-    return yesResult(str, shift);
-}
-function shiftDecipher(str, shift = 1) {
-    return yesResult(str, -shift);
-}
-function yesResult(str, shift = 1) {
-    shift = shift % (lastShift - firstShift + 1);
-    let result = "";
-    for (let i = 0; i < str.length; i++) {
-        let code = str.charCodeAt(i);
-        if (code < firstShift || code > lastShift) {
-            result += str[i];
-        }
-        else {
-            code += shift;
-            if (code > lastShift) {
-                code += (firstShift - lastShift) - 1;
-            }
-            result += String.fromCharCode(code);
-        }
-    }
-    return result;
-}
-console.log(shiftCipher("abc", 1));
-console.log(shiftCipher("abz", 27));
-console.log(shiftCipher("abz", 1000));
-console.log(shiftDecipher("bcd", 1));
-console.log(shiftDecipher("bca", 27));
-console.log(shiftDecipher("mnl", 1000));
+Object.defineProperty(exports, "__esModule", { value: true });
+const Rectangle_1 = require("./Rectangle");
+const Square_1 = require("./Square");
+const ShapesContainer_1 = require("./ShapesContainer");
+const Cipher_1_1 = require("./Cipher.1");
+const Decipher_1_1 = require("./Decipher.1");
+const inputStr = 'az2:W';
+const choiceC = new Cipher_1_1.Cipher('a'.charCodeAt(0), 'z'.charCodeAt(0), 50);
+const strS = choiceC.cipher(inputStr);
+console.log(inputStr, strS, choiceC.decipher(strS));
+const choiceD = new Decipher_1_1.Decipher('a'.charCodeAt(0), 'z'.charCodeAt(0), 50);
+const strA = choiceD.cipher(inputStr);
+console.log(inputStr, strA, choiceD.decipher(strA));
+const shapes = [
+    new Rectangle_1.Rectangle(3, 4),
+    new Square_1.Square(5)
+];
+const container = new ShapesContainer_1.ShapesContainer(shapes);
+const sumOfShapes = container.getSquare();
+const sumOfPerim = container.getPerimeter();
+console.log(sumOfShapes, sumOfPerim);
 //# sourceMappingURL=app.js.map
