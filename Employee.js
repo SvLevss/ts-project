@@ -31,6 +31,9 @@ class Employee {
             throw `salary mast be in range [${exports.MIN_SALARY}-${exports.MAX_SALARY}]`;
         }
     }
+    getSalary() {
+        return this.basicSalary;
+    }
 }
 exports.Employee = Employee;
 //# sourceMappingURL=Employee.js.map
