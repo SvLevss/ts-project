@@ -26,8 +26,9 @@ export class SalesePerson extends WageEmployee {
         if (percent < MIN_PERCENT || percent > MAX_PERCENT) {
             throw `wrong percent value must be in range [${MIN_PERCENT}-${MAX_PERCENT}]`
         }
+        this._percent = percent;
     }
     computeSalary(): number {
-        return this.salesPlus + (this.salesPlus * this.percent / 100);
+        return super.computeSalary() + (this._sales * this._percent / 100);
     }
 } 

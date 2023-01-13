@@ -28,9 +28,10 @@ class SalesePerson extends WageEmployee_1.WageEmployee {
         if (percent < exports.MIN_PERCENT || percent > exports.MAX_PERCENT) {
             throw `wrong percent value must be in range [${exports.MIN_PERCENT}-${exports.MAX_PERCENT}]`;
         }
+        this._percent = percent;
     }
     computeSalary() {
-        return this.salesPlus + (this.salesPlus * this.percent / 100);
+        return super.computeSalary() + (this._sales * this._percent / 100);
     }
 }
 exports.SalesePerson = SalesePerson;

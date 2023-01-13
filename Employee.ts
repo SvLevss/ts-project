@@ -26,6 +26,7 @@ export abstract class Employee {
       if (salary < MIN_SALARY || salary > MAX_SALARY) {
          throw `salary mast be in range [${MIN_SALARY}-${MAX_SALARY}]`
       }
+      this._basicSalary = salary;
    }
    abstract computeSalary(): number;
    getSalary(): number {
